@@ -1,0 +1,17 @@
+program laba1
+implicit none
+real X,Y
+read*,X
+if ((X.LT.1)) then 
+  print *, "net resheniy"
+else if ((x .ge. -10) .and. (x .le. 10)) then
+    y = (sqrt(x-1))/(x+30)
+    print *, "y=", y
+  else if (x .gt. 10) then
+      y = (-x-2)/(x+2)
+      print *, "y=", y
+    else if (x .lt. -10) then
+        y = (sqrt(x-100))/(x+10)
+        print *, "y=", y
+endif
+end
