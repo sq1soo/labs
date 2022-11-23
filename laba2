@@ -1,0 +1,34 @@
+program laba2
+implicit none
+real e, x, s, i, n, factorial
+integer g
+s = 0
+e = 0.0001
+x = 1
+i = 0
+n = 1
+factorial = 1
+	do while (x .ge. e)
+		if (n .ge. 1) then
+			factorial = factorial * n  
+			n = n + 1
+		end if
+		x = 1/factorial
+		s = s + x
+		i = i + 1
+	end do
+print *, "summa ryada  -", s, "koli4estvo iteraciy  -", i
+s = 0
+n = 1
+g = 0
+factorial = 1
+	do g=g,19
+		if (n .ge. 1) then
+			factorial = factorial * n
+			n = n + 1
+		end if
+		x = 1/factorial
+		s = s + x
+	end do
+print *, "summa 20-ti 4lenov  -", s 
+end
