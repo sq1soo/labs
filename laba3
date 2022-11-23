@@ -1,0 +1,18 @@
+program laba3
+integer N, I, K
+dimension A(100)
+real T
+print *, 'print N'
+read *, N
+print *, 'start array'
+call random_number(A)
+A = A * 100
+print *, (A(I), I = 1, N)
+T = A(N)
+do I = N-1, 1, -1
+A(I+1) = A(I)
+enddo
+A(1) = T
+print *, 'changed array'
+print *,(A(I), I=1, N)
+end
