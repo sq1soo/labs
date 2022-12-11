@@ -1,0 +1,51 @@
+program laba6
+implicit none
+real, dimension(7,4) :: mass
+integer :: i, j, h, g 
+h = 7
+g = 4
+print *, 'vvedite matritsu'
+do i = 1, 7
+    read *, (mass(i, j), j = 1, 4)
+enddo
+print *, 'vvedenny massiv'
+do i = 1, 7
+    print *, (mass(i, j), j = 1, 4)
+enddo
+
+call s(mass, h, g)
+
+print *, 'izmenennaya matritsa'
+do i = 1, 7
+    print *, (mass(i, j), j = 1, 4)
+enddo
+end
+
+subroutine s(mass, h, g)
+integer i, j, x, y, h, g
+real mass(h, g), v
+v = mass(1, 1)
+x = 1
+y = 1
+do i = 1, 7
+    do j = 1, 4
+        if (mass(i, j) .gt. v) then
+            v = mass(i, j)
+            x = i
+            y = j
+        endif
+    enddo
+enddo
+print *, 'Naibolshy element matritsi i ego koordonaty'
+print *, v, x, y
+do i = 1, 7
+    v = mass(i, 1)
+    mass(i, 1) = mass(i, y)
+    mass(i, y) = v
+enddo
+do j = 1, 4
+    v = mass(x, j)
+    mass(x, j) = mass(1, j)
+    mass(1, j) = v
+enddo
+end
