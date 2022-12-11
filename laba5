@@ -1,0 +1,29 @@
+program laba5
+implicit none
+integer m
+real, allocatable, dimension(:) :: mass
+print *, 'vvedite razmer massiva'
+read *, m 
+allocate (mass(m))
+print *, 'vvedite massiv'
+read *, mass
+print *, 'ishodny massiv'
+print *, mass 
+
+call s(mass, m)
+
+print *, 'polu4eny massiv'
+print *, mass
+deallocate (mass)
+end
+
+subroutine s(mass, m)
+integer i, m
+real a, mass(m)
+a = mass(m)
+do while (m .ne. 1)
+    mass(m) = mass(m - 1)
+    m = m - 1 
+enddo
+mass(1) = a 
+end
